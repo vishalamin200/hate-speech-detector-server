@@ -125,7 +125,7 @@ class HateController:
     def check_speech(initial_state):
         try:
             # Load the CountVectorizer
-            cv = joblib.load("models/Countvectorizer_model.pkl")  # Load CountVectorizer from file
+            cv = joblib.load("models/CountVectorizer_model.pkl")  # Load CountVectorizer from file
 
             # Load the trained model
             model = joblib.load("models/Hate_model.pkl")  # Load your trained model from file  
