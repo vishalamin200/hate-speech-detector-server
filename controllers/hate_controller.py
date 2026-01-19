@@ -5,7 +5,7 @@ import joblib
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 import nltk
 
 app = Flask(__name__)
@@ -159,18 +159,14 @@ class HateController:
             print("Input text:", text)
             print("Source language:", source_language)
 
-            translator = Translator()
-
             # Extract language code from source_language
             src_lang = source_language.split('-')[0]
 
             print("Source language code:", src_lang)
 
             # Translate the text to English
-            translation = translator.translate(text, src=src_lang, dest='en')
+            translated_text = GoogleTranslator(source=src_lang, target="en").translate(text)
 
-            # Get the translated text
-            translated_text = translation.text
             print("Translation:", translated_text)
 
             return translated_text
